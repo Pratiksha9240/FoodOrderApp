@@ -1,0 +1,21 @@
+.order {
+    font: inherit;
+    cursor: pointer;
+    background-color: green;
+    border: 1px solid green;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+.close{
+    font: inherit;
+    cursor: pointer;
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
