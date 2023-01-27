@@ -19,3 +19,41 @@
     border-radius: 20px;
     font-weight: bold;
 }
+.meals {
+  max-width: 60rem;
+  width: 90%;
+  margin: 2rem auto;
+  animation: meals-appear 1s ease-out forwards;
+}
+
+.meals ul {
+  list-style: none;
+  margin-left: 120px;
+  margin-top: 40px;
+  padding-left: 15px;
+}
+.p{
+  color: green;
+}
+
+.add{
+  font: inherit;
+    cursor: pointer;
+    background-color: green;
+    border: 1px solid green;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-left: 350px;
+}
+.remove{
+  font: inherit;
+  cursor: pointer;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
