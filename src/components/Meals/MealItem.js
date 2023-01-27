@@ -8,7 +8,7 @@ const MealItem = (props) => {
             <div className={classes.description}>{props.meal.description}</div>
             <div className={classes.price}>${props.meal.price}</div>
             <div>
-                <UserInput />
+                <UserInput id = 'a' name = {props.meal.name} price = {props.meal.price} />
             </div>
             
         </li>
