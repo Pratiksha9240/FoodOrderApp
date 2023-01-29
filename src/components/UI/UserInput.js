@@ -8,8 +8,11 @@ const UserInput = (props) => {
 
   const amountChangeHandler = (event) => {
     setAmt(event.target.value);
+    setIsError(false)
     // console.log(amt)
   }
+
+  const [isError,setIsError] = useState(false);
 
 
   const ctx = useContext(CartContext);
@@ -19,7 +22,7 @@ const UserInput = (props) => {
     const enteredAmount = +amt;
 
     if(enteredAmount <= 0){
-      console.log("Please enter valid amount");
+      setIsError(true);
     }
     else{
       ctx.addItem({
@@ -29,6 +32,8 @@ const UserInput = (props) => {
         price: props.price});
     }
 
+    setAmt(0);
+
   };
 
   return (
@@ -36,8 +41,9 @@ const UserInput = (props) => {
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.input}>
           <label htmlFor="quantity">Quantity</label>
-          <input type="number" name="quantity" id="quantity" onChange={amountChangeHandler}/>
+          <input type="number" name="quantity" id="quantity" onChange={amountChangeHandler} value={amt}/>
         </div>
+        {isError && <p className={classes.p}>Please Enter a valid amount</p>}
         <button type="submit">+ Add</button>
       </form>
     </>

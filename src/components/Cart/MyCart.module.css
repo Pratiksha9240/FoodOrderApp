@@ -7,6 +7,7 @@
     padding: 0.25rem 2rem;
     border-radius: 20px;
     font-weight: bold;
+    margin-left: 350px;
   }
 
 .close{
@@ -55,5 +56,30 @@
   color: white;
   padding: 0.25rem 2rem;
   border-radius: 20px;
+  font-weight: bold;
+}
+.add:hover,
+.add:active {
+  background-color: rgb(2, 44, 2);
+}
+
+.remove:hover,
+.remove:active {
+  background-color: rgb(70, 20, 20);
+}
+.order:hover,
+.order:active {
+  background-color: rgb(2, 44, 2);
+}
+
+.close:hover,
+.close:active {
+  background-color: rgb(70, 20, 20);
+}
+
+.div{
+  margin-top: -20px;
+  margin-bottom: 20px;
+  margin-left: 70px;
   font-weight: bold;
 }

@@ -1,10 +1,27 @@
 import classes from "./MyCart.module.css";
 import Modal from "../UI/Modal";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../../context/cart-context";
+import Order from "./Order";
 
 const MyCart = (props) => {
+
+  const [isVisible,setIsVisible] = useState(false);
+
   const cartCtx = useContext(CartContext);
+
+  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const removeFromCartHandler = (id) => {
+        cartCtx.removeItem(id);
+  }
+
+  const addToCartHandler = (i) => {
+    cartCtx.addItem({...i, amount: 1})
+  }
+
+  const showOrderScreen = () => {
+    setIsVisible(true);
+  }
 
   const items = (
     <ul className={classes.meals}>
@@ -12,9 +29,10 @@ const MyCart = (props) => {
         <>
           <h2>{i.name}</h2>
           <p className={classes.p}>${i.price}</p>
+          <p>{i.amount}</p>
           <span>
-          <button className={classes.add}>+</button>
-          <button className={classes.remove}>-</button>
+            <button className={classes.add} onClick={() => addToCartHandler(i)}>+</button>
+            <button className={classes.remove} onClick={() => removeFromCartHandler(i.id)}>-</button>
           </span>
           <hr />
         </>
@@ -25,15 +43,18 @@ const MyCart = (props) => {
   return (
     <Modal>
       {items}
-      <div>
+      <div className={classes.div}>
         <span>Total price</span>
-        <span>12</span>
+        <span>: {totalAmount}</span>
       </div>
       <div>
+        <button className={classes.order} onClick={showOrderScreen}>Order</button>
         <button className={classes.close} onClick={props.onClose}>
           Close
         </button>
-        <button className={classes.order}>Order</button>
+      </div>
+      <div>
+        {isVisible && <Order/>}
       </div>
     </Modal>
   );
